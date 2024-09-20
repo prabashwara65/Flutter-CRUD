@@ -127,6 +127,13 @@ class _HomePageState extends State<HomePage>{
             textColor: Colors.white,
             child: const Text('ok'),
             onPressed: () {
+              Todo todo = Todo(
+                task: _textEditingController.text, 
+                isDone: false, 
+                createdOn: Timestamp.now(), 
+                updatedOn: Timestamp.now()
+                );
+                _databaseService.addTodo(todo);
                 Navigator.pop(context);
                 _textEditingController.clear();
             },),
