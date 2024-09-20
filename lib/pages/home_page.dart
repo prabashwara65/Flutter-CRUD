@@ -61,6 +61,11 @@ class _HomePageState extends State<HomePage>{
             itemCount: todos.length,
             itemBuilder: (context, index) {
               Todo todo = todos[index].data();
+              
+              //Get Todo id
+              String todoId = todos[index].id;
+              
+              print('todo id' + todoId);
               return Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 10,
