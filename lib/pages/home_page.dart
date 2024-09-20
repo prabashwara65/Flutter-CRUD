@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/models/todo.dart';
 import 'package:flutter_crud/services/database_service.dart';
 
 class HomePage extends StatefulWidget{
@@ -55,7 +56,20 @@ class _HomePageState extends State<HomePage>{
               child: Text("Add Todo"),
             );
           }
-          return ListView();
+          print(todos);
+          return ListView.builder(
+            itemCount: todos.length,
+            itemBuilder: (context, index) {
+              Todo todo = todos[index].data();
+              return Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 10,
+                  ),
+                  child: ListTile(),
+                );
+            },
+          );
         }
         ),
     );
