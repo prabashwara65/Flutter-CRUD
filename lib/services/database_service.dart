@@ -21,6 +21,14 @@ class DatabaseService{
   }
 
   void addTodo(Todo todo) async {
-    _todoRef.add(Todo);
+    await _todoRef.add(todo);
+  }
+
+  void updateTodo(String todoId, Todo todo) async {
+    await _todoRef.doc(todoId).update(todo.toJson());
+  }
+
+  void deleteTodo(String todoId)async {
+    await _todoRef.doc(todoId).delete();
   }
 }
