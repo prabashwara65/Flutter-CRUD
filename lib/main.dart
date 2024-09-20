@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_crud/pages/home_page.dart';
 import 'firebase_options.dart'; // Import the firebase_options.dart
 
 Future <void> main() async {
@@ -22,11 +23,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Firestore CRUD Example'),
-        ),
-        body: Center(child: Text('Firestore CRUD Example')),
+        // appBar: AppBar(
+        //   title: Text('Firestore CRUD Example'),
+        // ),
+        body: HomePage(),
       ),
     );
   }
+
+ 
 }
