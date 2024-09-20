@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart'; // Import the firebase_options.dart
 
-void main() async {
+Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  FirebaseFirestore.instance.settings = const Settings(
-    persistenceEnabled: true,
-  );
+  options: const FirebaseOptions(
+    apiKey: 'AIzaSyBdyS3kMgW6x6CwbIcyqrvUpHZBHGZz75s',
+    appId: '1:719294928545:android:6e8dc40eefa0455a5d42e0',
+    messagingSenderId: 'sendid',
+    projectId: 'fir-crud-9746a',
+  )
+);
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
