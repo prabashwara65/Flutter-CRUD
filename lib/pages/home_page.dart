@@ -45,8 +45,19 @@ class _HomePageState extends State<HomePage>{
   Widget _messagesListView(){
     return SizedBox(
       height: MediaQuery.sizeOf(context).height * 0.80,
-      width: MediaQuery.sizeOf(context),
-    )
-
+      width: MediaQuery.sizeOf(context).width,
+      child: StreamBuilder(
+        stream: _databaseService.getTodos(),
+        builder: (context , Snapshot){
+          List todos = Snapshot.data?.docs?? [];
+          if(todos.isEmpty){
+            return const Center(
+              child: Text("Add Todo"),
+            );
+          }
+          return ListView();
+        }
+        ),
+    );
   }
 }
