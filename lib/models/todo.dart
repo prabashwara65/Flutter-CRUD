@@ -26,4 +26,27 @@ class Todo {
 
     );
 
+    Todo copyWith ({
+      String? task,
+      bool? isDone,
+      Timestamp? createdOn,
+      Timestamp? updatedOn,
+    }){
+      return Todo(
+        task: task ?? this.task,
+        isDone: isDone ?? this.isDone,
+        createdOn: createdOn ?? this.createdOn,
+        updatedOn: updatedOn ?? this.updatedOn,
+      );
+    }
+
+    Map<String ,Object?> toJson(){
+      return {
+        'task' : task,
+        'isDone' : isDone,
+        'createdOn' : createdOn,
+        'updatedOn' : updatedOn,
+      };
+    }
+
 }
