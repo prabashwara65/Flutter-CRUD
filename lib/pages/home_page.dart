@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/todo.dart';
 import 'package:flutter_crud/services/database_service.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget{
   const HomePage({Key? key}) : super(key: key);
@@ -65,13 +66,25 @@ class _HomePageState extends State<HomePage>{
               //Get Todo id
               String todoId = todos[index].id;
               
-              print('todo id' + todoId);
+             // print('todo id' + todoId);
               return Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 10,
                   ),
-                  child: ListTile(),
+                  child: ListTile(
+                    tileColor: Theme.of(context).colorScheme.primaryContainer,
+                    title: Text(todo.task),
+                    subtitle: Text(
+                      DateFormat("dd-MM-yyyy h:mm a").format(
+                        todo.updatedOn.toDate(),
+                        ),
+                    ),
+                    trailing: Checkbox(
+                      value: todo.isDone,
+                      onChanged: (value){}
+                      ),
+                  ),
                 );
             },
           );
