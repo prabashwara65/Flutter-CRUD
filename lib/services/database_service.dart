@@ -15,4 +15,12 @@ class DatabaseService{
 
       toFirestore: (todo, _) => todo.toJson());
   }
+
+  Stream<QuerySnapshot> getTodos(){
+    return _todoRef.snapshots();
+  }
+
+  void addTodo(Todo todo) async {
+    _todoRef.add(Todo);
+  }
 }
