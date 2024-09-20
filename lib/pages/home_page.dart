@@ -16,8 +16,8 @@ class _HomePageState extends State<HomePage>{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: _appBar(),
+      body: _buidUi(),
     );
-    
   }
   
   PreferredSizeWidget _appBar(){
@@ -30,5 +30,23 @@ class _HomePageState extends State<HomePage>{
         ),
         ),
     );
+
+  }
+
+   Widget _buidUi(){
+    return SafeArea(
+        child: Column(
+      children: [
+          _messagesListView(),
+        ],
+    ));
+  }
+
+  Widget _messagesListView(){
+    return SizedBox(
+      height: MediaQuery.sizeOf(context).height * 0.80,
+      width: MediaQuery.sizeOf(context),
+    )
+
   }
 }
