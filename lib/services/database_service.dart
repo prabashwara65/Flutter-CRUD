@@ -23,4 +23,8 @@ class DatabaseService{
   void addTodo(Todo todo) async {
     _todoRef.add(Todo);
   }
+
+  void updateTodo(String todoId, Todo todo){
+    _todoRef.doc(todoId).update(todo.toJson());
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/todo.dart';
 import 'package:flutter_crud/services/database_service.dart';
@@ -82,7 +83,12 @@ class _HomePageState extends State<HomePage>{
                     ),
                     trailing: Checkbox(
                       value: todo.isDone,
-                      onChanged: (value){}
+                      onChanged: (value){
+                        Todo updateTodo = todo.copyWith(
+                          isDone: !todo.isDone, updatedOn: Timestamp.now()
+                        );
+                        _databaseService.updateTodo(todoId , updateTodo);
+                      }
                       ),
                   ),
                 );
